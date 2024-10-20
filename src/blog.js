@@ -5,7 +5,7 @@ var blogs = [
         description: "Today I asked out IU on a date to go to a flower garden and she said yes!!",
         image: "path/to/image",
         imageAlt: "alt/path",
-        slug: "https://www.instagram.com/dlwlrma/?hl=en",
+        slug: "first-date",
     },
     {
         title: "ENGAGED!!!",
@@ -13,7 +13,7 @@ var blogs = [
         description: "I have nothing to say but thank you god",
         image: "path/to/image",
         imageAlt: "alt/path",
-        slug: "https://www.instagram.com/dlwlrma/?hl=en",
+        slug: "engaged",
     },
     {
         title: "We got married!!!!!!",
@@ -21,7 +21,7 @@ var blogs = [
         description: "I wanna thank my mom, and my dad, and my dog, and my sweater, and that one spider that i ran away from that led me to her",
         image: "path/to/image",
         imageAlt: "alt/path",
-        slug: "https://www.instagram.com/dlwlrma/?hl=en",
+        slug: "we-got-married",
     }
 ];
 function appendBlogsToContainer(blogs) {
@@ -32,27 +32,36 @@ function appendBlogsToContainer(blogs) {
     }
     blogs.forEach(function (blog) {
         var blogDiv = document.createElement('div');
-        blogDiv.classList.add('blog');
-        // make a title element with h1 styling and append it as a child
-        var title = document.createElement('h1');
-        title.textContent = blog.title;
-        blogDiv.appendChild(title);
-        // the same as the title element but with p styling
+        blogDiv.classList.add('blog-entry');
+
+        // Create title as a clickable link
+        var blogLink = document.createElement('a');
+        blogLink.href = `blogs/${blog.slug}.html`; // Redirect to specific blog page
+        blogLink.textContent = blog.title;
+        blogLink.classList.add('blog-title');
+        
         var date = document.createElement('p');
         date.textContent = blog.date;
-        blogDiv.appendChild(date);
+        date.classList.add('blog-date');
+
         var description = document.createElement('p');
         description.textContent = blog.description;
-        blogDiv.appendChild(description);
+        description.classList.add('blog-description');
+
         var image = document.createElement('img');
         image.src = blog.image;
         image.alt = blog.imageAlt;
+        image.classList.add('blog-image');
+
+        // Append elements to the blogDiv
+        blogDiv.appendChild(blogLink);
+        blogDiv.appendChild(date);
+        blogDiv.appendChild(description);
         blogDiv.appendChild(image);
-        var readMoreLink = document.createElement('a');
-        readMoreLink.href = "/blog/".concat(blog.slug);
-        readMoreLink.textContent = 'This is her instagram. Go follow her';
-        blogDiv.appendChild(readMoreLink);
-        // append this div for the blog with all the child elements to the blogContainer
+
+        // Append the blogDiv to the container
         blogContainer.appendChild(blogDiv);
     });
 }
+
+appendBlogsToContainer(blogs);
