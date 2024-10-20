@@ -8,22 +8,6 @@ var blogs = [
         slug: "https://www.instagram.com/dlwlrma/?hl=en",
     },
     {
-        title: "Second Date",
-        date: "August 14th, 2023",
-        description: "Our first date went so well we decided to go on another date and this time we went to go watch a movie~",
-        image: "path/to/image",
-        imageAlt: "alt/path",
-        slug: "https://www.instagram.com/dlwlrma/?hl=en",
-    },
-    {
-        title: "We're dating!",
-        date: "October 10th, 2023",
-        description: "I asked her out :0 she said no at first but i bothered her enough for her to say yes in the end. please dont cancel me",
-        image: "path/to/image",
-        imageAlt: "alt/path",
-        slug: "https://www.instagram.com/dlwlrma/?hl=en",
-    },
-    {
         title: "ENGAGED!!!",
         date: "November 14th, 2023",
         description: "I have nothing to say but thank you god",
