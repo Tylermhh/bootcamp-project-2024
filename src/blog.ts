@@ -12,7 +12,7 @@ const blogs: Blog[] = [
         title: "First Date",
         date: "August 1st, 2023",
         description: "Today I asked out IU on a date to go to a flower garden and she said yes!!",
-        image: "path/to/image",
+        image: "../images/iu tutle.jpg",
         imageAlt: "alt/path",
         slug: "https://www.instagram.com/dlwlrma/?hl=en",
     },

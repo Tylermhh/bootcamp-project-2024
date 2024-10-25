@@ -3,7 +3,7 @@ var blogs = [
         title: "First Date",
         date: "August 1st, 2023",
         description: "Today I asked out IU on a date to go to a flower garden and she said yes!!",
-        image: "path/to/image",
+        image: "../images/iu tutle.jpg",
         imageAlt: "alt/path",
         slug: "first-date",
     },
@@ -11,15 +11,15 @@ var blogs = [
         title: "ENGAGED!!!",
         date: "November 14th, 2023",
         description: "I have nothing to say but thank you god",
-        image: "path/to/image",
+        image: "../images/iu puffy.jpg",
         imageAlt: "alt/path",
         slug: "engaged",
     },
     {
         title: "We got married!!!!!!",
         date: "Feburary 14th, 2023",
-        description: "I wanna thank my mom, and my dad, and my dog, and my sweater, and that one spider that i ran away from that led me to her",
-        image: "path/to/image",
+        description: "I wanna thank my mom, and my dad, and my dog, and my sweater, and that one spider that i ran away from that led me to her lol",
+        image: "../images/iu white.jpg",
         imageAlt: "alt/path",
         slug: "we-got-married",
     }
@@ -49,7 +49,7 @@ function appendBlogsToContainer(blogs) {
         description.classList.add('blog-description');
 
         var image = document.createElement('img');
-        image.src = blog.image;
+        image.src = `${blog.image}`;
         image.alt = blog.imageAlt;
         image.classList.add('blog-image');
 
