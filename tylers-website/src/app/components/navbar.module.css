@@ -1,13 +1,12 @@
-:root {
-    /* variables */
+/* :root {
     --cg-black: rgb(30, 32, 32);
     --cg-blue: rgb(36, 94, 255);
     --cg-grey: rgb(243, 243, 243);
     --cg-white: rgb(255, 255, 255);
     --darkslate-gray: rgb(47,79, 79);
-  }
+  } */
   
-  html {
+  /* html {
     height: 100%;
   }
   
@@ -18,7 +17,7 @@
     padding: 0;
     margin: 0;
     font-family: monospace;
-  }
+  } */
   
   /* CSS for navigation */
   
@@ -81,13 +80,13 @@
     text-decoration: None;
   }
   
-  main {
+  /* main {
     padding: 0 20px 40px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  } */
   
   .page-title {
     display: flex;
@@ -253,7 +252,7 @@
   
   /* CSS for contact form */
   
-  label {
+  /* label {
     display: block;
     margin-bottom: 8px;
     font-family: Georgia;
@@ -273,10 +272,10 @@
   }
   
   /* Add some spacing to the form */
-  form {
+  /*form {
     width: 500px;
     margin: 0 auto;
-  }
+  } */
   
   /* CSS for footer */
   

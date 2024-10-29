@@ -30,8 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}> //remember Inter is simply the font I chose.
-	        <Navbar/> // This sets the navbar on every page 
+      <body className={inter.className}>
+	        <Navbar/>
         {children}
         </body>
     </html>
