@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google"; // Import Inter from Google Fonts
 import "./globals.css";
 
-import Navbar from "./components/navbar";
+import Navbar from "../components/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
