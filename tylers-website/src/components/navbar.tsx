@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* We'll use Link from now on instead of <a></a>
 			      Links are just Next.js wrapper arounds <a> elements anyways
          */}
-        <Link href="/" >Home</Link>
+        <Link href="/home" >Home</Link>
         <Link href="/blogs">Blogs</Link>
         <Link href="/resume" >Resume</Link>
         <Link href="/about" >Contact Me</Link>

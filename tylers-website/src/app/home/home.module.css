@@ -22,8 +22,6 @@
   /* CSS for navigation */
   
   .navbar {
-    font-family: monospace;
-    font-weight: bold;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -36,9 +34,9 @@
     align-items: center;
     text-align: center;
   
-    background-color: rgb(47,79, 79);
-    color: white;
-    padding: 10px 10px;
+    background-color: var(--darkslate-gray);
+    color: var(--cg-white);
+    padding: 0px 0px;
   
     /* Debug border */
     /* border: solid red; */
@@ -170,13 +168,17 @@
   
   .about {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    justify-self: center;
+    width: 50%;
     padding: 20px;
     background-color: #f8f8f8;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 10px;
+    gap: 20px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   }
   
@@ -190,7 +192,6 @@
   
   .aboutText {
     flex: 1;
-    margin-left: 20px;
   }
   
   .aboutText h2 {
