@@ -59,8 +59,8 @@ export default function ResumePage() {
                 
             </div>
 
-            <div className="resume-image"></div>
-            <div className="resume-text">
+            <div className={style.resumeImage}></div>
+            <div className={style.resumeText}>
                 <p>Hi! My name is <em>Min Hset Hlaing</em> and I'm a <strong> software engineer </strong> with a goal of focusing in ML!</p>
             </div>
             

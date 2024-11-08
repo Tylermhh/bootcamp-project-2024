@@ -1,18 +1,20 @@
 import React from "react";
+import style from "./about.module.css";
+import { styleText } from "util";
 
 export default function AboutPage() {
   return (
     <main>
-        <div className="contact">
-            <div className="contact-image">
+        <div className={style.contact}>
+            <div className={style.contactImage}>
                 <img width="500" src="./images/iu i stan u 4.jpg" alt="my wife"/>
             </div>
-            <div className="contact-text">
+            <div className={style.contactText}>
                 <p>Hi! Please feel free to reach out to me!! :D</p>
             </div>
         </div>
 
-        <form className="form">
+        <form className={style.form}>
             <label htmlFor="name">Name: </label>
             <input type="text" id="name" name="name" placeholder="Name" required />
             <br></br>

@@ -1,4 +1,4 @@
-type Blog = {
+export type Blog = {
 	title: string;
 	date: string;
 	description: string;
@@ -7,7 +7,7 @@ type Blog = {
     slug: string;  // A slug is a URL name used to redirect to a specific page 
 };
 
-const blogs: Blog[] = [
+export const blogs: Blog[] = [
     {
         title: "First Date",
         date: "August 1st, 2023",
@@ -33,6 +33,7 @@ const blogs: Blog[] = [
         slug: "https://www.instagram.com/dlwlrma/?hl=en",
     }
 ]
+
 
 // function appendBlogsToContainer(blogs: Blog[]) {
 //     const blogContainer = document.getElementById('blog-container');
