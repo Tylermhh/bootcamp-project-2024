@@ -3,8 +3,8 @@ import style from "./home.module.css";
 
 export default function HomePage() {
   return (
-    <main>
-        <div className={style.about}>
+    <main className={style.main}>
+        <div className={`${style.about} animate-slideFromTop`}>
             <div className={style.aboutImage}>
               <img width="500" src="/images/iu.jpg" alt="my wife"/>
             </div>

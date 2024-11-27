@@ -4,7 +4,7 @@ import { styleText } from "util";
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className={style.main}>
         <div className={style.contact}>
             <div className={style.contactImage}>
                 <img width="500" src="./images/iu i stan u 4.jpg" alt="my wife"/>
