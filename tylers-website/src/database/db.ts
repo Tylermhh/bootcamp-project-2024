@@ -20,6 +20,8 @@ const connectDB = async () => {
 
 export default connectDB;
 
+
+// // below is just some desperate attempts (dont bother with it)
 // import mongoose from "mongoose";
 
 // const url: string = process.env.MONGO_URI as string;

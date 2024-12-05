@@ -1,3 +1,6 @@
+// // modified version to bypass the issue of running this before connectDB. Uncomment to try. also have to uncomment some imports in blog's page.tsx
+// // this version gets to connectDB but gives "connect is not a function" error instead
+
 // import mongoose, { Schema } from "mongoose";
 // import connectDB from "./db";
 
@@ -30,6 +33,9 @@
 //     return Blog;
 // }
 
+
+// original version from bootcamp (runs into the issue of trying to run this code before connectDB in blog's page.tsx)
+// comment out everything in the bottom and uncomment everything above to try the modified version that doesnt have this issue
 import mongoose, { Schema } from "mongoose";
 
 type Blog = {

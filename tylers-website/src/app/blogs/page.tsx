@@ -5,10 +5,16 @@ import style from "./blogs.module.css";
 // import { blogs } from "@/app/blogData";
 import BlogPreview from '@/components/blogPreview';
 import connectDB from "@/database/db";
-// import { getBlogModel } from "@/database/blogSchema";
-// import { Blog } from "@/database/blogSchema";
+
+// comment this out to try the modified version. uncomment for bootcamp version
 import Blog from "@/database/blogSchema";
 
+// // uncomment these to try the modified version and swap the commented and uncommented getBlogs functions below
+// import { getBlogModel } from "@/database/blogSchema";
+// import { Blog } from "@/database/blogSchema";
+
+
+// bootcamp version
 async function getBlogs(){
   console.log("Connecting to db")
 	await connectDB() // function from db.ts before
@@ -27,6 +33,7 @@ async function getBlogs(){
 	}
 }
 
+// // modified version that gives me "connect is not a function" error
 // async function getBlogs() {
 //   console.log("Connecting to db");
 //   try {
