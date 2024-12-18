@@ -1,5 +1,14 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
+// Define the IComment type
+export type IComment = {
+    _id: string;
+    user: string;
+    comment: string;
+    time: Date;
+};
+
+// Define the Blog type
 export type Blog = {
     title: string;
     date: Date;
@@ -7,28 +16,27 @@ export type Blog = {
     image: string;
     imageAlt: string;
     slug: string; // A slug is a URL name used to redirect to a specific page
+    comments: IComment[]; // Array of comment objects
 };
 
+// Create the blog schema
 const blogSchema = new Schema<Blog>({
     title: { type: String, required: true },
     date: { type: Date, required: false, default: () => new Date() }, // Use a function for dynamic default
     description: { type: String, required: true },
-    image: { type: String, required: true }, // Added type declaration
-    imageAlt: { type: String, required: true }, // Added to match Blog type
-    slug: { type: String, required: true }
+    image: { type: String, required: true },
+    imageAlt: { type: String, required: true },
+    slug: { type: String, required: true },
+    comments: [
+        {
+            user: { type: String, required: true },
+            comment: { type: String, required: true },
+            time: { type: Date, default: Date.now }
+        }
+    ] // Nested comments field
 });
 
-
-
-console.log("this is getting called before connectDB in blogs page.tsx because of the import")
-console.log(mongoose.models)
-
-// defining the collection and model
-const BlogModel = mongoose.models['blogs'] ||
-    mongoose.model('blogs', blogSchema);
-
-
-// Ensure that mongoose model is defined only once
-// const Blog = mongoose.models.blogs || mongoose.model<Blog>('blogs', blogSchema);
+// Define the collection and model
+const BlogModel = mongoose.models['blogs'] || mongoose.model('blogs', blogSchema);
 
 export default BlogModel;

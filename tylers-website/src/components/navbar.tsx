@@ -9,7 +9,7 @@ export default function Navbar() {
     // NOTE: we use "class" in HTML but React is quirky so we have to 
     // change all the "class" to "className"
     <header className={style.navbar} >
-      <h1> Tyler's Personal Website </h1>
+      <h1> <Link href="/home" >Tyler's Personal Website</Link> </h1>
       <nav>
         {/* We'll use Link from now on instead of <a></a>
 			      Links are just Next.js wrapper arounds <a> elements anyways

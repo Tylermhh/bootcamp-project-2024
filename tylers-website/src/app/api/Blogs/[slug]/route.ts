@@ -11,6 +11,7 @@ type IParams = {
 
 // If { params } looks confusing, check the note below this code block
 export async function GET(req: NextRequest, { params }: IParams) {
+	console.log("called api hook")
     await connectDB() // function from db.ts before
 		const { slug } = params // another destructure
 
