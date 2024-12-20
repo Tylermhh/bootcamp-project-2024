@@ -52,14 +52,12 @@ export default function Blog({ params }: { params: Promise<{ slug: string }> }) 
   const [blog, setBlog] = useState<Blog | null>(null);
   const [newComment, setNewComment] = useState({ user: "", comment: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [stateChanged, setStateChanged] = useState(false);
 
   // Fetch blog data on mount
   useEffect(() => {
     console.log("refreshing")
     getBlog(slug).then(setBlog);
-    setStateChanged(false)
-  }, [slug, ]);
+  }, [slug]);
 
   // Handle form submission for new comments
   const handleSubmit = async (e: React.FormEvent) => {
@@ -96,7 +94,6 @@ export default function Blog({ params }: { params: Promise<{ slug: string }> }) 
     }
 
     setIsSubmitting(false);
-    setStateChanged(true);
   };
 
   if (blog) {
@@ -168,7 +165,7 @@ export default function Blog({ params }: { params: Promise<{ slug: string }> }) 
   return (
     <main className={style.blogPage}>
       <h1>Blog Not Found</h1>
-      <p>We couldn't find the blog you were looking for.</p>
+      <p>We couldn&apos;t find the blog you were looking for.</p>
     </main>
   );
 }
