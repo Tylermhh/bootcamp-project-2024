@@ -11,6 +11,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
+    "emailjs-com": "^3.2.0",
     "mongoose": "^8.8.3",
     "next": "15.0.1",
     "react": "19.0.0-rc-69d4b800-20241021",

@@ -29,6 +29,7 @@ const blogSchema = new Schema<Blog>({
     slug: { type: String, required: true },
     comments: [
         {
+            // _id: String,
             user: { type: String, required: true },
             comment: { type: String, required: true },
             time: { type: Date, default: Date.now }
