@@ -1,7 +1,7 @@
 "use client";
 import Comment from "@/components/Comment";
 import style from "./singleBlog.module.css";
-import type { Blog, IComment } from "@/database/blogSchema";
+import type { Blog } from "@/database/blogSchema";
 import { use, useEffect, useState } from "react";
 
 async function getBlog(slug: string): Promise<Blog | null> {
@@ -52,12 +52,14 @@ export default function Blog({ params }: { params: Promise<{ slug: string }> }) 
   const [blog, setBlog] = useState<Blog | null>(null);
   const [newComment, setNewComment] = useState({ user: "", comment: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [stateChanged, setStateChanged] = useState(false);
 
   // Fetch blog data on mount
   useEffect(() => {
     console.log("refreshing")
     getBlog(slug).then(setBlog);
-  }, [slug]);
+    setStateChanged(false)
+  }, [slug, ]);
 
   // Handle form submission for new comments
   const handleSubmit = async (e: React.FormEvent) => {
@@ -94,6 +96,7 @@ export default function Blog({ params }: { params: Promise<{ slug: string }> }) 
     }
 
     setIsSubmitting(false);
+    setStateChanged(true);
   };
 
   if (blog) {

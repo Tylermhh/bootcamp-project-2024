@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 // Define the structure of an EntryItem
 type EntryItem = {
@@ -13,12 +13,12 @@ export type Section = {
   items: string | EntryItem[]; // Mixed type: string or EntryItem
 }
 
-// Define the schema for EntryItem
-const entryItemSchema = new Schema<EntryItem>({
-  title: { type: String, required: true },
-  info: { type: String, required: false },
-  description: { type: String, required: false },
-});
+// // Define the schema for EntryItem
+// const entryItemSchema = new Schema<EntryItem>({
+//   title: { type: String, required: true },
+//   info: { type: String, required: false },
+//   description: { type: String, required: false },
+// });
 
 // Define the schema for Section
 const sectionSchema = new Schema<Section>({
@@ -27,7 +27,7 @@ const sectionSchema = new Schema<Section>({
     {
       type: Schema.Types.Mixed, // Allow mixed types (string or EntryItem object)
       validate: {
-        validator: function (item: any) {
+        validator: function (item: string | EntryItem) {
           return (
             typeof item === "string" || // Allow strings
             (typeof item === "object" && item.title) // Validate EntryItem
