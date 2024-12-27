@@ -4,7 +4,7 @@ import blogSchema from "@/database/blogSchema"
 import BlogModel from "@/database/blogSchema";
 
 // Ensure the correct structure is followed
-export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   console.log("called api hook");
   await connectDB(); // Ensure the database is connected
 
@@ -19,7 +19,7 @@ export async function GET(req: NextRequest, { params }: { params: { slug: string
   }
 }
 
-export async function POST(req: NextRequest, { params }: { params: { slug: string } }) {
+export async function POST(req: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   console.log("POST request to add a comment");
   await connectDB(); // Ensure MongoDB is connected
 
