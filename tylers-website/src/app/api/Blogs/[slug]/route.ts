@@ -8,7 +8,7 @@ export async function GET(req: NextRequest, { params }: { params: { slug: string
   console.log("called api hook");
   await connectDB(); // Ensure the database is connected
 
-  const { slug } = params; // Destructure slug from params
+  const { slug } = await params; // Destructure slug from params
 
   try {
     const blog = await blogSchema.findOne({ slug }).orFail();
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest, { params }: { params: { slug: strin
   console.log("POST request to add a comment");
   await connectDB(); // Ensure MongoDB is connected
 
-  const { slug } = params; // Destructure slug from params
+  const { slug } = await params; // Destructure slug from params
   const body = await req.json(); // Parse the request body
 
   try {
