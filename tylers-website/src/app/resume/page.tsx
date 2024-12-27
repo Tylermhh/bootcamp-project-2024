@@ -4,6 +4,41 @@ import ResumeItem from "@/components/resumeItem";
 import SectionModel, { Section } from "@/database/resumeSchema";
 import connectDB from "@/database/db";
 
+export async function fetchResumeEntries(): Promise<Section[]> {
+    await connectDB();
+
+    try {
+    const resumeEntries = await SectionModel.find().orFail(); // Fetch all sections
+    return resumeEntries;
+    } catch (err) {
+    console.error(err);
+    return []; // Return an empty array on error
+    }
+}
+
+export default async function ResumePage() {
+    const resumeEntries: Section[] = await fetchResumeEntries();
+
+    return (
+        <main className={style.main}>
+        <div className={style.titleContent}>
+            <div className={style.titleImage}>
+            <img width="500" src="./images/IUPaletteCover.png" alt="my wife" />
+            </div>
+            <a className={style.button} href="resume.pdf" download>
+            Download Resume
+            </a>
+        </div>
+
+        <div className={style.resume}>
+            {resumeEntries.map((section, index) => (
+            <ResumeItem key={index} title={section.title} items={section.items} />
+            ))}
+        </div>
+        </main>
+    );
+}
+
 // trying to programatically add stuff to collection since collection was returnning nothing when called
 // it worked and created a new collection that does work so im keeping this code but commented out
 // async function seedDatabase() {
@@ -56,37 +91,3 @@ import connectDB from "@/database/db";
   
   
 
-export async function getResumeEntries(): Promise<Section[]> {
-    await connectDB();
-
-    try {
-    const resumeEntries = await SectionModel.find().orFail(); // Fetch all sections
-    return resumeEntries;
-    } catch (err) {
-    console.error(err);
-    return []; // Return an empty array on error
-    }
-}
-
-export default async function ResumePage() {
-    const resumeEntries: Section[] = await getResumeEntries();
-
-    return (
-        <main className={style.main}>
-        <div className={style.titleContent}>
-            <div className={style.titleImage}>
-            <img width="500" src="./images/IUPaletteCover.png" alt="my wife" />
-            </div>
-            <a className={style.button} href="resume.pdf" download>
-            Download Resume
-            </a>
-        </div>
-
-        <div className={style.resume}>
-            {resumeEntries.map((section, index) => (
-            <ResumeItem key={index} title={section.title} items={section.items} />
-            ))}
-        </div>
-        </main>
-    );
-}
