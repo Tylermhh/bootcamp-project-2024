@@ -4,7 +4,7 @@ import ResumeItem from "@/components/resumeItem";
 import SectionModel, { Section } from "@/database/resumeSchema";
 import connectDB from "@/database/db";
 
-export async function fetchResumeEntries(): Promise<Section[]> {
+async function fetchResumeEntries(): Promise<Section[]> {
     await connectDB();
 
     try {
