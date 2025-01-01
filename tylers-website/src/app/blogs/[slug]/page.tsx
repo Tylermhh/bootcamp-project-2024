@@ -7,7 +7,7 @@ import { use, useEffect, useState } from "react";
 async function getBlog(slug: string): Promise<Blog | null> {
 	try {
 		// This fetches the blog from an api endpoint that would GET the blog
-		const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+		const res = await fetch(`https://bootcamp-project-2024-v2.vercel.app/api/Blogs/${slug}`, {
 			cache: "no-store",	
 		})
 		// This checks that the GET request was successful
@@ -25,11 +25,34 @@ async function getBlog(slug: string): Promise<Blog | null> {
 	}
 }
 
+// async function getBlog(slug: string): Promise<Blog | null> {
+// 	try {
+// 		// This fetches the blog from an api endpoint that would GET the blog
+// 		const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+// 			cache: "no-store",	
+// 		})
+// 		// This checks that the GET request was successful
+// 		if (!res.ok) {
+// 			throw new Error("Failed to fetch blog");
+// 		}
+
+// 		return res.json();
+// 	} catch (err: unknown) {
+// 		console.log(`error: ${err}`);
+// 		return null;
+// 		// `` are a special way of allowing JS inside a string
+// 		// Instead of "error: " + err, we can just do the above
+// 		// it is simular to formated strings in python --> f"{err}"
+// 	}
+// }
+
+
+
 // Function to handle posting a new comment
 async function postComment(slug: string, commentData: { user: string; comment: string; time: string }) {
   try {
     console.log("posting comment")
-    const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+    const res = await fetch(`https://bootcamp-project-2024-v2.vercel.app/api/Blogs/${slug}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(commentData),
@@ -46,6 +69,27 @@ async function postComment(slug: string, commentData: { user: string; comment: s
     return null;
   }
 }
+
+// async function postComment(slug: string, commentData: { user: string; comment: string; time: string }) {
+//   try {
+//     console.log("posting comment")
+//     const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(commentData),
+//     });
+
+//     if (!res.ok) {
+//       throw new Error("Failed to post comment");
+//     }
+
+//     return res.json();
+//   } 
+//   catch (err: unknown) {
+//     console.error("Error submitting comment:", err);
+//     return null;
+//   }
+// }
 
 export default function Blog({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params); // Unwrap params using `use()`
