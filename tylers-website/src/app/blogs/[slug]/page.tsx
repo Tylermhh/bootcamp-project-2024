@@ -7,7 +7,7 @@ import { use, useEffect, useState } from "react";
 async function getBlog(slug: string): Promise<Blog | null> {
 	try {
 		// This fetches the blog from an api endpoint that would GET the blog
-		const res = await fetch(`https://bootcamp-project-2024-v2.vercel.app/api/Blogs/${slug}`, {
+		const res = await fetch(`https://bootcamp-project-2024-v2-qzyzs5iee-min-hset-hlaings-projects.vercel.app/api/Blogs/${slug}`, {
 			cache: "no-store",	
 		})
 		// This checks that the GET request was successful
@@ -52,7 +52,7 @@ async function getBlog(slug: string): Promise<Blog | null> {
 async function postComment(slug: string, commentData: { user: string; comment: string; time: string }) {
   try {
     console.log("posting comment")
-    const res = await fetch(`https://bootcamp-project-2024-v2.vercel.app/api/Blogs/${slug}`, {
+    const res = await fetch(`https://bootcamp-project-2024-v2-qzyzs5iee-min-hset-hlaings-projects.vercel.app/api/Blogs/${slug}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(commentData),
