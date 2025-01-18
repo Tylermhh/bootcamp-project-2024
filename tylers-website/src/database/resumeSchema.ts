@@ -13,13 +13,6 @@ export type Section = {
   items: string | EntryItem[]; // Mixed type: string or EntryItem
 }
 
-// // Define the schema for EntryItem
-// const entryItemSchema = new Schema<EntryItem>({
-//   title: { type: String, required: true },
-//   info: { type: String, required: false },
-//   description: { type: String, required: false },
-// });
-
 // Define the schema for Section
 const sectionSchema = new Schema<Section>({
   title: { type: String, required: true },
