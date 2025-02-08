@@ -1,15 +1,13 @@
 'use client';
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router"; // Import the useRouter hook
-import ProjectPreview from "@/components/projectPreview";
+import { use, useEffect, useState } from "react";
 import style from "./singleProject.module.css";
 import { ProjectItem } from "@/database/portfolioSchema";
 
 async function fetchProject(slug: string) {
   try {
     // for local running
-    // const response = await fetch(`/api/projects/${slug}`);
-    const response = await fetch(`https://bootcamp-project-2024-v2-qzyzs5iee-min-hset-hlaings-projects.vercel.app/api/projects/${slug}`);
+    // const response = await fetch(`/api/Projects/${slug}`);
+    const response = await fetch(`https://bootcamp-project-2024-v2-qzyzs5iee-min-hset-hlaings-projects.vercel.app/api/Projects/${slug}`);
     const project = await response.json();
     return project;
   } catch (error) {
@@ -18,17 +16,18 @@ async function fetchProject(slug: string) {
   }
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params); // Unwrap params using `use()`
   const [project, setProject] = useState<ProjectItem | null>(null);
 
   useEffect(() => {
     const getProjectData = async () => {
-      const fetchedProject = await fetchProject(params.slug);
+      const fetchedProject = await fetchProject(slug);
       setProject(fetchedProject);
     };
     
     getProjectData();
-  }, [params.slug]); // The effect depends on the slug param
+  }, [slug]); // The effect depends on the slug param
 
   if (!project) {
     return <p>Loading...</p>;

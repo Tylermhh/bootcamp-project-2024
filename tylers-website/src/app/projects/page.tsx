@@ -60,38 +60,38 @@ export default async function ProjectsPage() {
   );
 }
 
-async function seedDatabase() {
-  await connectDB();
+// async function seedDatabase() {
+//   await connectDB();
 
-  const dummyData = [
-    {
-      title: "Random Forest",
-      description: "Implemented random forest in Java from scratch",
-      technologies: ["Java", "Machine Learning"],
-      repository: "https://github.com/Tylermhh/466-RandomForest",
-      slug: "random-forest",
-    },
-    {
-      title: "Personal Portfolio",
-      description: "A website to showcase projects and skills",
-      technologies: ["HTML", "CSS", "JavaScript", "React"],
-      repository: "https://github.com/Tylermhh/Personal-Portfolio-Website",
-      slug: "personal-portfolio",
-    },
-    {
-      title: "Todo List",
-      description: "A simple todo list web app",
-      technologies: ["JavaScript", "HTML", "CSS"],
-      repository: "https://github.com/Tylermhh/404-day-visualizer-app",
-      slug: "todo-list",
-    }
-  ];
+//   const dummyData = [
+//     {
+//       title: "Random Forest",
+//       description: "Implemented random forest in Java from scratch",
+//       technologies: ["Java", "Machine Learning"],
+//       repository: "https://github.com/Tylermhh/466-RandomForest",
+//       slug: "random-forest",
+//     },
+//     {
+//       title: "Personal Portfolio",
+//       description: "A website to showcase projects and skills",
+//       technologies: ["HTML", "CSS", "JavaScript", "React"],
+//       repository: "https://github.com/Tylermhh/Personal-Portfolio-Website",
+//       slug: "personal-portfolio",
+//     },
+//     {
+//       title: "Todo List",
+//       description: "A simple todo list web app",
+//       technologies: ["JavaScript", "HTML", "CSS"],
+//       repository: "https://github.com/Tylermhh/404-day-visualizer-app",
+//       slug: "todo-list",
+//     }
+//   ];
 
-  try {
-    // Insert the dummy data directly into the collection
-    await PortfolioModel.create(dummyData);
-    console.log("Database seeded!");
-  } catch (err) {
-    console.error("Seeding error:", err);
-  }
-}
+//   try {
+//     // Insert the dummy data directly into the collection
+//     await PortfolioModel.create(dummyData);
+//     console.log("Database seeded!");
+//   } catch (err) {
+//     console.error("Seeding error:", err);
+//   }
+// }
