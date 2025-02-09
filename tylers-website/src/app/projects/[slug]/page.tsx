@@ -7,7 +7,7 @@ async function fetchProject(slug: string) {
   try {
     // for local running
     // const response = await fetch(`/api/Projects/${slug}`);
-    const response = await fetch(`https://bootcamp-project-2024-v2-qzyzs5iee-min-hset-hlaings-projects.vercel.app/api/Projects/${slug}`);
+    const response = await fetch(`https://bootcamp-project-2024-v2-qzyzs5iee-min-hset-hlaings-projects.vercel.app/api/projects/${slug}`);
     const project = await response.json();
     return project;
   } catch (error) {
